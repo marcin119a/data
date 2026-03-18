@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sages Newsletter – Marzec 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --teal: #00b8a0;
+    --teal-light: #00d4bb;
+    --cream: #f5f0e8;
+    --warm-gray: #e8e3d8;
+    --orange: #ff5c2b;
+    --text: #1a1a2e;
+    --muted: #5a6677;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #d6d0c5;
+    font-family: 'DM Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+  }
+
+  .email-wrapper {
+    width: 640px;
+    max-width: 100%;
+  }
+
+  /* ---- PREHEADER ---- */
+  .preheader {
+    font-size: 11px;
+    color: #888;
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ---- HEADER ---- */
+  .header {
+    background: var(--navy);
+    padding: 36px 48px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: var(--teal);
+    opacity: 0.12;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 30px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: var(--orange);
+    opacity: 0.1;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
+
+  .logo span {
+    color: var(--teal);
+  }
+
+  .issue-badge {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    border: 1px solid var(--teal);
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  .header-hero {
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-kicker {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 12px;
+  }
+
+  .header-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  .header-title em {
+    color: var(--teal);
+    font-style: italic;
+  }
+
+  .header-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    max-width: 420px;
+  }
+
+  /* ---- STATS BAR ---- */
+  .stats-bar {
+    background: var(--teal);
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(13,27,42,0.65);
+    margin-top: 4px;
+  }
+
+  /* ---- BODY ---- */
+  .body {
+    background: var(--cream);
+  }
+
+  /* ---- SECTION INTRO ---- */
+  .section-intro {
+    padding: 48px 48px 0;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .section-body {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ---- OFFER CARDS ---- */
+  .cards-grid {
+    padding: 32px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--warm-gray);
+    transition: transform 0.2s;
+  }
+
+  .card-accent {
+    height: 4px;
+  }
+
+  .card-accent.teal { background: var(--teal); }
+  .card-accent.orange { background: var(--orange); }
+  .card-accent.navy { background: var(--navy); }
+  .card-accent.gold { background: #d4a017; }
+
+  .card-body {
+    padding: 24px;
+  }
+
+  .card-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .card-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .card-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-block;
+  }
+
+  .card-tag.teal { background: #e0f8f5; color: var(--teal); }
+  .card-tag.orange { background: #fff0eb; color: var(--orange); }
+  .card-tag.navy { background: #e8ecf2; color: var(--navy); }
+  .card-tag.gold { background: #fdf5e0; color: #a07800; }
+
+  /* ---- HERO BLOCK: AKADEMIE ---- */
+  .hero-block {
+    margin: 0 48px 32px;
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-block::before {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: var(--teal);
+    opacity: 0.15;
+  }
+
+  .hero-block-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 12px;
+  }
+
+  .hero-block-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-block-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+    max-width: 380px;
+  }
+
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pill {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.06);
+  }
+
+  /* ---- DIVIDER ---- */
+  .divider {
+    margin: 0 48px;
+    height: 1px;
+    background: var(--warm-gray);
+  }
+
+  /* ---- STUDIES SECTION ---- */
+  .studies-section {
+    padding: 40px 48px;
+  }
+
+  .study-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--warm-gray);
+  }
+
+  .study-row:last-child { border-bottom: none; }
+
+  .study-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: var(--warm-gray);
+    line-height: 1;
+    min-width: 36px;
+    padding-top: 2px;
+  }
+
+  .study-info {}
+  .study-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .study-meta {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .study-new {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--orange);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+  }
+
+  /* ---- CTA BLOCK ---- */
+  .cta-block {
+    background: linear-gradient(135deg, #0d1b2a 0%, #1a3a4a 100%);
+    margin: 0 48px 40px;
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-block::before {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 50%;
+    transform: translateX(-50%);
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: var(--teal);
+    opacity: 0.08;
+  }
+
+  .cta-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--teal);
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 40px;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-btn-outline {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.8);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 13px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    margin-left: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- TESTIMONIAL ---- */
+  .testimonial-section {
+    padding: 0 48px 40px;
+  }
+
+  .testimonial {
+    background: #fff;
+    border-left: 3px solid var(--teal);
+    padding: 24px 28px;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .testimonial-text {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .testimonial-author {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---- FOOTER ---- */
+  .footer {
+    background: var(--navy);
+    padding: 40px 48px;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  .footer-logo span { color: var(--teal); }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer-link {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+  }
+
+  .footer-contact {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+
+  .footer-contact a {
+    color: var(--teal);
+    text-decoration: none;
+  }
+
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .social-btn {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  .footer-legal {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    line-height: 1.7;
+  }
+
+  .footer-legal a {
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+  }
+
+  /* ---- KFS BANNER ---- */
+  .kfs-banner {
+    margin: 0 48px 40px;
+    background: linear-gradient(135deg, #fff3e0 0%, #fff8ec 100%);
+    border: 1px solid #ffe0a0;
+    border-radius: 12px;
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .kfs-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+  }
+
+  .kfs-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .kfs-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .kfs-btn {
+    margin-left: auto;
+    flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 700;
+    background: #d4a017;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<div class="email-wrapper">
+
+  <p class="preheader">Szkolenia IT · Akademie · Chatboty · Oprogramowanie dla uczelni · Marzec 2026</p>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div class="logo">sa<span>g</span>es</div>
+      <div class="issue-badge">Marzec 2026</div>
+    </div>
+    <div class="header-hero">
+      <div class="header-kicker">Nowa era edukacji IT</div>
+      <h1 class="header-title">Make IT<br><em>happen.</em></h1>
+      <p class="header-sub">Szkolenia, akademie, chatboty i oprogramowanie – wszystko, czego potrzebujesz, żeby rozwinąć siebie i swój zespół w 2026 roku.</p>
+    </div>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num">400+</div>
+      <div class="stat-label">szkoleń IT</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">200+</div>
+      <div class="stat-label">ekspertów</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">20+</div>
+      <div class="stat-label">lat na rynku</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">1000+</div>
+      <div class="stat-label">firm klientów</div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- SZKOLENIA -->
+    <div class="section-intro">
+      <div class="section-label">Edukacja</div>
+      <h2 class="section-title">Szkolenia IT dopasowane<br>do Twoich potrzeb</h2>
+      <p class="section-body">Oferujemy ponad 400 szkoleń – od programowania i chmury po AI, testowanie i zarządzanie. Szkolenia otwarte, zamknięte dla firm oraz e-learning na platformie Sages.</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-accent teal"></div>
+        <div class="card-body">
+          <span class="card-icon">☁️</span>
+          <div class="card-title">Chmura & DevOps</div>
+          <p class="card-desc">AWS, Azure, GCP, Kubernetes, CI/CD – praktyczne warsztaty z ekspertami branży.</p>
+          <span class="card-tag teal">Bestseller</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent orange"></div>
+        <div class="card-body">
+          <span class="card-icon">🤖</span>
+          <div class="card-title">AI & Machine Learning</div>
+          <p class="card-desc">Python, TensorFlow, NLP, LLMy – wejdź w świat sztucznej inteligencji z praktykami.</p>
+          <span class="card-tag orange">🔥 HOT</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent navy"></div>
+        <div class="card-body">
+          <span class="card-icon">💻</span>
+          <div class="card-title">Programowanie</div>
+          <p class="card-desc">Java, Python, PHP, .NET, C++ – od podstaw po zaawansowane wzorce projektowe.</p>
+          <span class="card-tag navy">Szeroki wybór</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent gold"></div>
+        <div class="card-body">
+          <span class="card-icon">🧪</span>
+          <div class="card-title">Testowanie & QA</div>
+          <p class="card-desc">Automatyzacja, Selenium, Cypress, Playwright, ISTQB – kompletna ścieżka testera.</p>
+          <span class="card-tag gold">Certyfikacja</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AKADEMIE HERO -->
+    <div class="hero-block">
+      <div class="hero-block-label">Akademie dla firm ✦ Nowość</div>
+      <h2 class="hero-block-title">Upskilling i reskilling<br>dla całych zespołów</h2>
+      <p class="hero-block-desc">Kompleksowe programy szkoleniowe tworzone na miarę – od analizy luk kompetencyjnych po certyfikację uczestników. Idealnie dla zespołów IT, które chcą rosnąć szybciej.</p>
+      <div class="pills">
+        <span class="pill">AI Programming</span>
+        <span class="pill">AI & Analityka</span>
+        <span class="pill">DevOps / CloudOps</span>
+        <span class="pill">Testowanie</span>
+        <span class="pill">Zarządzanie</span>
+        <span class="pill">Programowanie</span>
+      </div>
+    </div>
+
+    <!-- KFS BANNER -->
+    <div class="kfs-banner">
+      <div class="kfs-icon">💰</div>
+      <div>
+        <div class="kfs-title">Dofinansowanie z KFS</div>
+        <div class="kfs-desc">Ruszyły nabory wniosków Krajowego Funduszu Szkoleniowego. Sfinansuj szkolenie swojego zespołu nawet w 100%.</div>
+      </div>
+      <a href="#" class="kfs-btn">Sprawdź →</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- STUDIA PODYPLOMOWE -->
+    <div class="studies-section">
+      <div class="section-label">Studia podyplomowe</div>
+      <h2 class="section-title" style="margin-bottom: 24px;">Wiedza na poziomie akademickim</h2>
+
+      <div class="study-row">
+        <div class="study-num">01</div>
+        <div class="study-info">
+          <div class="study-title">AI & Data Driven Business <span class="study-new">NEW</span></div>
+          <div class="study-meta">Akademia Leona Koźmińskiego · Data Science i Big Data w zarządzaniu</div>
+        </div>
+      </div>
+      <div class="study-row">
+        <div class="study-num">02</div>
+        <div class="study-info">
+          <div class="study-title">AI-Powered Business Intelligence <span class="study-new">NEW</span></div>
+          <div class="study-meta">Politechnika Warszawska · Zastosowania AI w BI</div>
+        </div>
+      </div>
+      <div class="study-row">
+        <div class="study-num">03</div>
+        <div class="study-info">
+          <div class="study-title">Inżynieria uczenia maszynowego i AI <span class="study-new">NEW</span></div>
+          <div class="study-meta">SGGW · Kompleksowe studia inżynierskie z ML</div>
+        </div>
+      </div>
+      <div class="study-row">
+        <div class="study-num">04</div>
+        <div class="study-info">
+          <div class="study-title">Data Science</div>
+          <div class="study-meta">Politechnika Warszawska · Analiza danych i modele predykcyjne</div>
+        </div>
+      </div>
+      <div class="study-row">
+        <div class="study-num">05</div>
+        <div class="study-info">
+          <div class="study-title">UX Design</div>
+          <div class="study-meta">Akademia Leona Koźmińskiego · Projektowanie doświadczeń cyfrowych</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- OPROGRAMOWANIE -->
+    <div class="section-intro" style="padding-top: 40px; padding-bottom: 0;">
+      <div class="section-label">Oprogramowanie</div>
+      <h2 class="section-title">Chatboty AI & systemy dla uczelni</h2>
+      <p class="section-body" style="margin-bottom: 28px;">Tworzymy zaawansowane chatboty oparte na NLP i uczeniu maszynowym, dedykowane językowi polskiemu. Dostarczamy też kompleksowe oprogramowanie uczelnianie: USOS, Omega-PSIR, UNIplaner i wiele więcej.</p>
+    </div>
+
+    <div class="cards-grid" style="padding-top: 16px;">
+      <div class="card">
+        <div class="card-accent teal"></div>
+        <div class="card-body">
+          <span class="card-icon">💬</span>
+          <div class="card-title">Chatboty dla biznesu</div>
+          <p class="card-desc">Inteligentne boty rekrutacyjne, obsługi klienta i wsparcia wewnętrznego.</p>
+          <span class="card-tag teal">Demo dostępne</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent navy"></div>
+        <div class="card-body">
+          <span class="card-icon">🏛️</span>
+          <div class="card-title">Oprogramowanie uczelni</div>
+          <p class="card-desc">Omega-PSIR, SSOP, UNIplaner, Portal Pracowniczy – kompletny ekosystem.</p>
+          <span class="card-tag navy">Dla uczelni</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIAL -->
+    <div class="testimonial-section">
+      <div class="testimonial">
+        <p class="testimonial-text">"Ogromna ilość praktycznej wiedzy, przekazana w przystępny sposób. Część zastosowałem w bieżących projektach jeszcze w czasie szkolenia!"</p>
+        <div class="testimonial-author">Uczestnik szkolenia Spring Framework</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <div class="cta-eyebrow">Działaj teraz</div>
+      <h2 class="cta-title">Gotowy na kolejny<br>poziom kompetencji?</h2>
+      <p class="cta-desc">Sprawdź najbliższe terminy gwarantowane lub pobierz katalog usług 2026.</p>
+      <a href="#" class="cta-btn">Sprawdź terminy →</a>
+      <a href="#" class="cta-btn-outline">Pobierz katalog</a>
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-logo">sa<span>g</span>es</div>
+    <div class="footer-links">
+      <a href="#" class="footer-link">Szkolenia</a>
+      <a href="#" class="footer-link">Akademie</a>
+      <a href="#" class="footer-link">Chatboty</a>
+      <a href="#" class="footer-link">Oprogramowanie</a>
+      <a href="#" class="footer-link">O nas</a>
+      <a href="#" class="footer-link">Kontakt</a>
+    </div>
+    <div class="footer-contact">
+      📞 <a href="tel:+48222035600">+48 22 203 56 00</a> &nbsp;·&nbsp;
+      ✉️ <a href="mailto:biuro@sages.pl">biuro@sages.pl</a>
+    </div>
+    <div class="footer-social">
+      <a href="#" class="social-btn">f</a>
+      <a href="#" class="social-btn">in</a>
+      <a href="#" class="social-btn">tw</a>
+      <a href="#" class="social-btn">yt</a>
+    </div>
+    <div class="footer-legal">
+      © Sages 2026 · Wszelkie prawa zastrzeżone<br>
+      Otrzymałeś(-aś) ten newsletter, ponieważ jesteś w naszej bazie.
+      <a href="#">Wypisz się</a> · <a href="#">Polityka prywatności</a>
+    </div>
+  </div>
+
+</div><!-- /wrapper -->
+
+</body>
+</html>
